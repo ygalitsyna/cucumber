@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.carina.demo.swaglabs.dao.interfaces.IUserDao">
+
+    <select id="getEntityById" resultMap="userResultMap">
+        SELECT
+            u.id as user_id,
+            u.firstname as firstname,
+            u.lastname as lastname,
+            u.login as login,
+            u.password as password,
+            u.zipcode as zipcode,
+            <include refid="com.solvd.carina.demo.swaglabs.dao.interfaces.IOrderDao.body"/>
+        FROM
+        users u
+        LEFT JOIN
+        orders o
+        ON u.id=o.user_id
+        WHERE u.id=#{id}
+    </select>
+
+    <resultMap id="userResultMap" type="com.solvd.carina.demo.swaglabs.model.User" autoMapping="false">
+        <id property="id" column="user_id"/>
+        <result property="firstName" column="firstname"/>
+        <result property="lastName" column="lastname"/>
+        <result property="login" column="login"/>
+        <result property="password" column="password"/>
+        <result property="zipcode" column="zipcode"/>
+        <collection property="orders" resultMap="com.solvd.carina.demo.swaglabs.dao.interfaces.IOrderDao.orderResultMap"/>
+    </resultMap>
+
+</mapper>
+
+
+
+
