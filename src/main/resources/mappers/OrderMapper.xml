@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "org/apache/ibatis/builder/xml/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.carina.demo.swaglabs.dao.interfaces.IOrderDao">
+
+    <sql id="body">
+        o.id as order_id,
+        o.product as product,
+        o.user_id
+    </sql>
+
+    <resultMap id="orderResultMap" type="com.solvd.carina.demo.swaglabs.model.Order" autoMapping="false">
+        <id property="orderId" column="order_id"/>
+        <result property="product" column="product"/>
+    </resultMap>
+
+</mapper>

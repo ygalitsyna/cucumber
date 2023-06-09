@@ -8,7 +8,7 @@
 	<artifactId>cucumber</artifactId>
 	<version>1.0</version>
 	<packaging>jar</packaging>
-	<name>“cucumber”</name>
+	<name>cucumber</name>
 	<url>https://www.solvd.com/</url>
 
 	<properties>
@@ -65,6 +65,16 @@
 			<artifactId>byte-buddy</artifactId>
 			<version>1.12.10</version>
 		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.5.7</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.33</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -113,6 +123,11 @@
 						<suiteXmlFile>${project.build.directory}/test-classes/testng_suites/${suite}.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
+			</plugin>
+			<plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-resources-plugin</artifactId>
+			  <version>3.3.0</version>
 			</plugin>
 		</plugins>
 	</build>
