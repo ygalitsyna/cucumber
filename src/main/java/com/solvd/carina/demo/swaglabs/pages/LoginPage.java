@@ -20,6 +20,9 @@ public class LoginPage extends AbstractPage {
     @FindBy(id = "login-button")
     private ExtendedWebElement loginButton;
 
+    @FindBy(xpath = "//h3[@data-test='error']")
+    private ExtendedWebElement errorMessage;
+
     public LoginPage(WebDriver driver) {
         super(driver);
         setPageAbsoluteURL(R.CONFIG.get(Configuration.Parameter.URL.getKey()));
@@ -32,5 +35,9 @@ public class LoginPage extends AbstractPage {
         passwordInput.type(user.getPassword());
         loginButton.click();
         return new HomePage(getDriver());
+    }
+
+    public boolean isErrorMessageCorrect(){
+        return errorMessage.getText().trim().equals("Epic sadface: Sorry, this user has been locked out.");
     }
 }

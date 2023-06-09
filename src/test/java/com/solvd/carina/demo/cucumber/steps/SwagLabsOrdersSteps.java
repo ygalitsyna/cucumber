@@ -61,8 +61,13 @@ public class SwagLabsOrdersSteps extends CucumberRunner{
         Assert.assertTrue(completePage.isCompleteHeaderCorrect(), "Order creation was not successful");
     }
 
+    @Then("Blocked message appears on login page")
+    public void blockedMessageAppearsOnLoginPage() {
+        Assert.assertTrue(loginPage.isErrorMessageCorrect(),"Blocked message on LoginPage isn't correct");
+    }
+
     public enum UserName {
-        TIM(1), JEFF(2), ELON(3);
+        TIM(1), JEFF(2), ELON(3), BILL (4);
 
         final int id;
 

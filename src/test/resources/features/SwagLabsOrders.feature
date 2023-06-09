@@ -13,3 +13,12 @@ Feature: Swag Labs orders testing
       | TIM  |
       | JEFF |
       | ELON |
+
+  Scenario Outline: Blocked user cannot login
+    Given Login page is opened
+    When <User> log in with user credentials taken from data base
+    Then Blocked message appears on login page
+
+    Examples:
+      | User |
+      | BILL  |
