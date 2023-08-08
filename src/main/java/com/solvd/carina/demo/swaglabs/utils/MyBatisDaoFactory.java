@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.Reader;
 
 public class MyBatisDaoFactory {
+    
     private final static Logger LOGGER = LogManager.getLogger(MyBatisDaoFactory.class);
     private final static MyBatisDaoFactory myBatisDaoFactory = new MyBatisDaoFactory();
     private static SqlSessionFactory sqlSessionFactory;
